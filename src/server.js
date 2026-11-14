@@ -6,10 +6,13 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const app = express();
+const adminRoutes = require("./routes/adminRoutes");
+
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 app.get("/", (req, res) => {
     res.send("CAMPUSFIX Backend is Running!");
 });
